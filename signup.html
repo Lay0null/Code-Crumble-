@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+<body>
+
+    <header>
+        <h1> Create a new account</h1>
+    </header>
+    <div class="container">
+    <main>
+        <form action="index.html" method="POST">
+            
+        <label for="name"> Enter your name:</label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="Email">Enter your Email* :</label><br>
+        <input id="Email" name="Email" type="Email" required placeholder="name@gmail.com" /><br>
+
+        <label for="password">Enter your Password* :</label><br>
+        <input id="password" name="password" type="password" pattern=".{8,}" title="password must be at least 8 characters"required /><br>
+
+        <button type="submit">Sign up</button>
+        </form>
+        
+        <br>
+        <p>Do you already have an account? <a href="login.html"> Log in</a></p>
+    </main>
+     </div>
+    <footer>
+    <p>&copy; 2025 Code & Crumble</p>
+    </footer>
+
+</body>
+</html>

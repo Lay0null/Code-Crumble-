@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Recipe</title>
+</head>
+<body>
+
+<h2>Add Dessert Recipe</h2>
+
+<form action="view-recipe.html" method="post" enctype="multipart/form-data">
+
+  <div>
+    <fieldset>
+      <legend>Dessert Details</legend>
+
+      <label for="dessert_name">Dessert Name: *</label>
+      <input type="text" id="dessert_name" name="dessert_name" placeholder="Chocolate Cake" required>
+
+      <label>Type: *</label>
+      <input type="radio" name="type" value="Cake" required> Cake
+      <input type="radio" name="type" value="Cookie"> Cookie
+      <input type="radio" name="type" value="Pie"> Pie
+    </fieldset>
+
+     <fieldset>
+      <legend>Tags</legend>
+      <label>Tags: </label>
+      <input type="checkbox" name="tag" value="Quick"> Quick
+      <input type="checkbox" name="tag" value="gluten-free"> Gluten-free
+      <input type="checkbox" name="tag" value="Healthy"> Healthy
+    </fieldset>
+
+    <fieldset>
+      <legend>Ingredients & Instructions</legend>
+      <label for="ingredients">Ingredients: *</label><br><br>
+      <textarea id="ingredients" name="ingredients" rows="4" maxlength="200" placeholder="Flour, sugar, chocolate..." ></textarea><br><br>
+
+      <label for="instructions">Instructions: *</label><br><br>
+      <textarea id="instructions" name="instructions" rows="4" placeholder="How to bake...." required></textarea>
+    </fieldset>
+  </div>
+
+  <div>
+    <fieldset>
+      <legend>photo</legend>
+
+      <label for="recipe_file">Upload Dessert Image</label>
+      <input type="file" id="recipe_file" name="recipe_file" accept=".png,.jpg,.jpeg" onchange="updateStatus()">
+
+      <label for="status">Image Status</label>
+      <input type="text" id="status" value="No image uploaded" disabled>
+    </fieldset>
+  </div><br>
+<button type="submit" onclick="Submet()">Add Dessert</button>
+
+</form>
+
+
+<script>
+function updateStatus() {
+  const fileInput = document.getElementById('recipe_file');
+  const status = document.getElementById('status');
+
+  if (fileInput.files.length === 0) {
+    status.value = "No image uploaded";
+  } else {
+    status.value = "Image: " + fileInput.files[0].name;
+  }
+}
+function Submet() {
+  alert("saved successfully");
+  goToView();}
+
+  function goToView() {
+  location.href = "view-recipe.html";
+  } 
+</script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+/* --- 1. GLOBAL RESET AND LAYOUT --- */
+/* --- Color pallete of website is still under some Changes */
+body {
+    font-family: sans-serif; 
+    margin: 0; 
+    padding: 0;
+    background-color: #E7DEDA; 
+}
+.page-content {
+    max-width: 1200px; /* Limits the main content width */
+    margin: 0 auto;    /* Centers the main content */
+    padding: 20px;
+}
+
+/* --- 2. HEADER AND NAVIGATION STYLING --- */
+.main-header {
+    background-color: #3A2E39; /* violet background */
+    color: white;
+    padding: 15px 30px;
+    display: flex; /* Starts the horizontal layout */
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-menu {
+    list-style: none; /* Removes bullets */
+    display: flex; /* Makes the menu horizontal */
+    gap: 20px;
+}
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+/* --- RECIPE GRID LAYOUT --- */
+
+/* 1. Target the container for the recipes */
+.recipe-grid {
+    display: grid;
+    /* Create three columns of equal width (1fr = 1 fractional unit) */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; /* Space between the cards */
+    margin-top: 30px;
+}
+
+/* 2. Basic styling for the individual cards */
+.recipe-card {
+    background-color: white;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
+}
+
+/* 3. Ensures images don't overflow the cards */
+.recipe-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px; /* Match the card border radius */
+    margin-bottom: 10px;
+}
+
+/* --- 3. BUTTON STYLING --- */
+.btn-primary {
+    display: inline-block; /* Makes the link act like a block/button */
+    background-color: #F05365; /* Bright primary color */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}

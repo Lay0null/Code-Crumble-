@@ -25,10 +25,11 @@ const params = new URLSearchParams(window.location.search);
 
 document.getElementById("name").textContent = params.get("name") || "[empty]";
 document.getElementById("type").textContent = params.get("type") || "[empty]";
-document.getElementById("tags").textContent = params.get("tags") || "[none]";
-document.getElementById("ingredients").textContent = params.get("ingredients") || "[empty]";
+document.getElementById("tags").textContent = params.getAll("tags") || "[none]";
+document.getElementById("ingredients").textContent =params.get("ingredients") || "[empty]";
 document.getElementById("instructions").textContent = params.get("instructions") || "[empty]";
 </script>
 
 </body>
 </html>
+

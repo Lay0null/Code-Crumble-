@@ -1,83 +1,77 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Add Recipe</title>
-</head>
-<body>
 
-<h2>Add Dessert Recipe</h2>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="add-page">
+
+<header class="header"></header>
+
+  <h1>Share Your Recipe:</h1>
 
 <form action="view-recipe.html" method="get" enctype="multipart/form-data">
 
+  <div class="form-container">
 
-  <div>
-    <fieldset>
-      <legend>Dessert Details</legend>
+    <div class="column-left">
+      <div class="section-details">
+        <label for="dessert_name">Dessert Name: *</label>
+        <input type="text" id="dessert_name" name="dessert_name" placeholder="Chocolate Cake" required>
 
-      <label for="dessert_name">Dessert Name: *</label>
-      <input type="text" id="dessert_name" name="dessert_name" placeholder="Chocolate Cake" required>
+        <div class="recipe-type">
+            <label>Type: *</label>
+            <input type="radio" id="type-cake" name="type" value="Cake" required><label for="type-cake">Cake</label>
+            <input type="radio" id="type-cookie" name="type" value="Cookie"><label for="type-cookie">Cookie</label>
+            <input type="radio" id="type-pie" name="type" value="Pie"><label for="type-pie">Pie</label><br><br>
+        </div>
+      </div>
 
-      <label>Type: *</label>
-      <input type="radio" name="type" value="Cake" required> Cake
-      <input type="radio" name="type" value="Cookie"> Cookie
-      <input type="radio" name="type" value="Pie"> Pie
-    </fieldset>
+      <div class="section-tags">
+        <label>Tags: </label>
+        <input type="checkbox" id="tag-quick" name="tag" value="Quick"><label for="tag-quick">Quick</label>
+        <input type="checkbox" id="tag-gluten-free" name="tag" value="gluten-free"><label for="tag-gluten-free">Gluten-free</label>
+        <input type="checkbox" id="tag-healthy" name="tag" value="Healthy"><label for="tag-healthy">Healthy</label><br><br>
+      </div>
 
-     <fieldset>
-      <legend>Tags</legend>
-      <label>Tags: </label>
-      <input type="checkbox" name="tag" value="Quick"> Quick
-      <input type="checkbox" name="tag" value="gluten-free"> Gluten-free
-      <input type="checkbox" name="tag" value="Healthy"> Healthy
-    </fieldset>
+      <div class="section-instructions">
+        <label for="ingredients">Ingredients: *</label>
+        <textarea id="ingredients" name="ingredients" rows="4" maxlength="200" placeholder="Flour, sugar, chocolate..." ></textarea>
 
-    <fieldset>
-      <legend>Ingredients & Instructions</legend>
-      <label for="ingredients">Ingredients: *</label><br><br>
-      <textarea id="ingredients" name="ingredients" rows="4" maxlength="200" placeholder="Flour, sugar, chocolate..." ></textarea><br><br>
+        <label for="instructions">Instructions: *</label>
+        <textarea id="instructions" name="instructions" rows="4" placeholder="How to bake...." required></textarea>
+      </div>
 
-      <label for="instructions">Instructions: *</label><br><br>
-      <textarea id="instructions" name="instructions" rows="4" placeholder="How to bake...." required></textarea>
-    </fieldset>
+    </div> 
+
+    <div class="column-right">
+      <div class="section-photo">
+        <label for="recipe_file" class="custom-file-upload"><img src="camera-icon.png" alt="Upload Dessert Image"></label>
+        <input type="file" id="recipe_file" name="recipe_file" accept=".png,.jpg,.jpeg" onchange="updateStatus()">
+        <label for="status">Image Status</label>
+        <input type="text" id="status" value="No image uploaded" disabled>
+      </div>
+    </div>
+
   </div>
 
-  <div>
-    <fieldset>
-      <legend>photo</legend>
-
-      <label for="recipe_file">Upload Dessert Image</label>
-      <input type="file" id="recipe_file" name="recipe_file" accept=".png,.jpg,.jpeg" onchange="updateStatus()">
-
-      <label for="status">Image Status</label>
-      <input type="text" id="status" value="No image uploaded" disabled>
-    </fieldset>
-  </div><br>
-<button type="submit" onclick="Submet()">Add Dessert</button>
+  <button type="submit" onclick="Submet(event)">Add Dessert</button>
 
 </form>
 
+<footer>
+    <p>&copy; 2025 Code & Crumble.</p>
+</footer>
 
-<script>
-function updateStatus() {
-  const fileInput = document.getElementById('recipe_file');
-  const status = document.getElementById('status');
 
-  if (fileInput.files.length === 0) {
-    status.value = "No image uploaded";
-  } else {
-    status.value = "Image: " + fileInput.files[0].name;
-  }
-}
-function Submet() {
-  alert("saved successfully");
-  goToView();}
+<div id="miniAlert">
+  <div id="miniAlertText"><h5>Thank you For Sharing ପ(๑•ᴗ•๑)ଓ ♡<h5> 
+<button id="okAlert">OK</button>
+  </div>
+</div>
 
-  function goToView() {
-  location.href = "view-recipe.html";
-  } 
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

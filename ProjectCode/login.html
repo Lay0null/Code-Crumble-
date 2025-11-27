@@ -3,17 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="login-page">
 
-    <header>
-        <h1>Log in</h1>
-    </header>
-    <div class="container">
+<nav></nav>
+
+     <h1>Log in</h1>
+    <div class="login-container">
     <main>
       <form action="index.html" method="GET">
+        
       <label for="Email">Enter your Email* :</label><br>
-      <input id="Email" name="Email" type="Email" required placeholder="name@gmail.com" /><br>
+      <input id="Email" name="Email" type="Email" required placeholder="name@gmail.com" pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$" title="Please enter a valid email like name@gmail.com"/><br>
 
       <label for="password">Enter your Password* :</label><br>
       <input id="password" name="password" type="password" pattern=".{8,}" title="password must be at least 8 characters"required /><br>
@@ -27,6 +29,5 @@
     <footer>
     <p>&copy; 2025 Code & Crumble</p>
     </footer>
-
 </body>
 </html>

@@ -3,32 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <title>View Dessert Recipe</title>
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="view-page">
 
-<h2>View Dessert Recipe</h2>
+<header class="header"></header>
 
-<p><strong>Dessert Name:</strong> <span id="name"></span></p>
-<p><strong>Type:</strong> <span id="type"></span></p>
-<p><strong>Tags:</strong> <span id="tags"></span></p>
+<h1>View Your Recipe:</h1>
 
-<h3>Ingredients:</h3>
-<p id="ingredients"></p>
+<div class="view-box">
+  <p><strong>Dessert Name:</strong> <span id="name"></span></p>
+  <p><strong>Type:</strong> <span id="type"></span></p>
+  <p><strong>Tags:</strong> <span id="tags"></span></p>
 
-<h3>Instructions:</h3>
-<p id="instructions"></p>
+  <h3>Ingredients:</h3>
+  <p id="ingredients"></p>
 
-<a href="add-recipe.html">Back to Add Recipe</a>
+  <h3>Instructions:</h3>
+  <p id="instructions"></p>
 
-<script>
-const params = new URLSearchParams(window.location.search);
+  <a href="edit-recipe.html" class="back-btn"> Edit Recipe</a>
+</div>
 
-document.getElementById("name").textContent = params.get("name") || "[empty]";
-document.getElementById("type").textContent = params.get("type") || "[empty]";
-document.getElementById("tags").textContent = params.getAll("tags") || "[none]";
-document.getElementById("ingredients").textContent =params.get("ingredients") || "[empty]";
-document.getElementById("instructions").textContent = params.get("instructions") || "[empty]";
-</script>
+<footer>
+    <p>© 2025 Code & Crumble.</p>
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>

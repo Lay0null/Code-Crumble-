@@ -356,7 +356,7 @@ footer {
     margin-top: 100px;   
     margin-bottom: 20px;
 }
-/* label style*/
+\* label style*/
 .login-container label,
 .signup-container label {
     display: block;
@@ -529,3 +529,58 @@ font-family: 'Georgia', serif;
     z-index: -1; 
 }
 
+/*  VIEW RECIPE PAGE  */
+
+/* Page Title */
+.view-page h1 {
+    margin: 40px auto 20px auto;
+    width: 70%;
+    max-width: 700px;
+    font-size: 28px;
+    color: #5b3b32;
+}
+
+/* Main Recipe Box (looks similar to Add Recipe form) */
+.view-page .view-box {
+    width: 70%;
+    max-width: 700px;
+    background-color: #FEF7F9;
+    padding: 30px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin: 0 auto 40px auto;
+    border: 2px solid #F2D3DD;
+}
+
+/* Simple text lines (Name, Type, Tags) */
+.view-page .view-box p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #4A433E;
+}
+
+/* Section titles (Ingredients, Instructions) */
+.view-page .view-box h3 {
+    margin-top: 20px;
+    margin-bottom: 8px;
+    color: #5b3b32;
+}
+
+/* Edit Recipe Button Style */
+.view-page .back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 30px;
+    background-color: #DDA5B3;
+    color: #fff;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(221,165,179,0.8);
+    transition: 0.3s;
+}
+
+.view-page .back-btn:hover {
+    background-color: #B28391;
+    transform: translateY(-3px);
+}

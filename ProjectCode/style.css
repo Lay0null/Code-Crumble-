@@ -493,3 +493,232 @@ hr {
     color: #FBF7F3;
     margin: 0 10px;
 }
+
+
+/* ===================== LOGIN & SIGNUP PAGES ===================== */
+/* background image*/
+.login-page,
+.signup-page {
+    position: relative;
+    background-image: 
+        url("images/cubcake.png"), url("images/macaron.png"), url("images/biscuit.png"),
+        url("images/dount.png"), url("images/cinnabon.png"), url("images/cheasecake.png"),
+        url("images/cake.png"), url("images/pie.png"), url("images/biscuit2.png"),
+        url("images/icecream.png"), url("images/cakerole.png"), url("images/boding.png");
+
+    background-repeat: no-repeat;
+    background-size: 125px;
+    background-attachment: fixed;
+
+    background-position:
+        21% 22%,   /* cupcake */
+        78% 58%,   /* macaron */
+        37% 38%,   /* biscuit */
+        63% 38%,   /* donut */
+        91% 38%,   /* cinnabon */
+        7%  38%,   /*cheasecake*/
+        63% 76%,   /*cake*/
+        37% 75%,   /*pie*/
+        91% 76%,   /*biscuit2*/
+        7%  73%,   /*icecream*/
+        78% 22%,   /*cakerole*/
+        21% 58%;   /*boding*/
+}
+/* form style*/
+.login-container,
+.signup-container{
+ width: 360px;   
+}
+
+/* header style*/
+.login-page h1,
+.signup-page h1 {
+    margin-top: 100px;   
+}
+
+/* links (login/signup switch) */
+.login-container a,
+.signup-container a {
+    text-decoration: none;
+    color: #DDA5B3;
+    font-size: 14px;
+}
+
+/* message style*/
+.error-message {
+    color: #cc0000; 
+    border: 1px solid #cc0000;
+    background-color: #ffe0e0; 
+}
+/* ===================== LOGIN & SIGNUP & CONTACT PAGES ===================== */
+/* form style*/
+.login-container,
+.signup-container,
+.contact-container{
+    max-width: 90%;
+    background-color: #FFFFFF;
+    padding: 30px 35px;
+    border-radius: 22px;
+    border: 2px dashed #A37665;
+    margin: 60px auto;
+    box-sizing: border-box;
+}
+
+/* label style*/
+.login-container label,
+.signup-container label,
+.contact-container label {
+    display: block;
+    margin-bottom: 6px;
+    color: #5b5b5b;
+    font-size: 15px;
+}
+/* hover effect for button*/
+.login-container button:hover,
+.signup-container button:hover,
+.contact-container button:hover {
+    background-color: #B28391;
+}
+/* header focus style*/
+.login-container input:focus,
+.signup-container input:focus,
+.contact-container input:focus,
+.contact-container textarea:focus{
+    outline: none;
+    border: 2px solid  #AE887B;
+}
+/* button style*/
+.login-container button,
+.signup-container button,
+.contact-container button {
+    width: 100%;
+    padding: 14px;
+    background-color:#DDA5B3; 
+    color: white;
+    border: none;
+    border-radius: 14px;
+    font-size: 17px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+/* input fields style*/
+.login-container input,
+.signup-container input,
+.contact-container input,
+.contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #A37665;
+    border-radius: 10px;
+    margin-bottom: 18px;
+    background-color: #FFF8F2;
+    font-size: 15px;
+    box-sizing: border-box;
+}
+/* header style*/
+.login-page h1,
+.signup-page h1,
+.contact-container h1{
+    text-align: center;
+    font-size: 28px;
+    color: #5b3b32;   
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif; 
+}
+
+/* ===================== ABOUT PAGES ===================== */
+/* background image*/
+.about-page {
+    background-image: url( images/background.jpg);
+    background-size:1900px ;
+    background-repeat: repeat;
+    background-position: top left;
+    background-attachment: fixed;
+    image-rendering: pixelated;
+}
+/* main style*/
+.about-page .about-box {
+background-image: url(images/oval.png);
+    width: 1050px;         
+    height: 700px;           
+    padding: 160px 150px 0 90px;   
+    background-size: 126% 650px;   
+    background-position:center;
+}
+/* paragraph style*/
+.about-box p{
+display: block;
+margin-top: 20px;
+line-height: 1.8;
+}
+/* main style */
+.about-page .about-box{
+position: relative;
+ margin: 75px auto;     
+ box-sizing: border-box;  
+ text-align: center;
+ background-position: center;
+background-repeat: no-repeat;  
+}
+
+/* header style*/
+.about-box h1,
+.about-box h3{
+    font-size: 25px;
+    color: #5b3b32;
+    line-height: 1;
+    margin: 20px 0;
+    font-family: 'Playfair Display', serif; 
+}
+/* paragraph style*/
+.about-box p{
+font-size: 21px;
+color: #5b3b32; 
+ font-family: 'Playfair Display', serif;     
+}
+
+/* ===================== CONTACT PAGES ===================== */
+/* background image*/
+.contact-page{
+
+    background-image: url("images/dot.png");
+    background-repeat: repeat;
+    background-size: 20px 20px;
+    background-position: top left;
+}
+/* form style*/
+.contact-container {
+    width: 500px;
+}
+
+/* header style */
+.contact-container h1 {
+    margin-top: 20px;   
+}
+
+/* paragraph style, left aligned */
+.contact-container .contact-text {
+    text-align: left;
+    margin-bottom: 20px;
+}
+/* paragraph style*/
+.contact-container .contact-text p {
+    font-size: 15px;
+    color: #5b5b5b;
+    margin: 6px 0;
+}
+
+/* email icon before text */
+.contact-container .contact-text .p-email::before {
+    content: "";
+    display: inline-block;
+    background-image: url("images/email.png"); 
+    width: 30px;        
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-right: 8px;   
+    vertical-align: middle;
+}
+
+

@@ -1,3 +1,45 @@
+<?php 
+require_once "db_connect.php";  // Connect to the database
+
+$login_message = "";  // Keep empty unless there's an error
+
+// Check if the form was submitted using POST
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["Email"], $_POST["password"])) { 
+
+    // 1) Get the form values
+    $email = htmlspecialchars($_POST["Email"]);
+    $pass  = htmlspecialchars($_POST["password"]);
+
+    // 2) Simple validation
+    if ($email === "" || $pass === "") { 
+        $login_message = "<p class='error-message'>Please fill in all fields</p>"; 
+    } else {
+
+        // 3) SQL query to get the user
+        $sql = "SELECT id, username, password FROM users WHERE email = '$email'";
+        $result = $conn->query($sql);
+
+        // 4) Check results and set error messages
+        if ($result->num_rows === 1) { 
+            $row = $result->fetch_assoc();
+
+            if (!password_verify($pass, $row["password"])) {
+                $login_message = "<p class='error-message'>Wrong password</p>"; 
+            } else {
+                // Redirect on successful login
+                header("Location: index.php");
+                exit;
+            }
+
+        } else { 
+            $login_message = "<p class='error-message'>Email not found</p>"; 
+        }
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,25 +51,31 @@
 
 <nav></nav>
 
-     <h1>Log in</h1>
-    <div class="login-container">
-    <main>
-      <form action="index.html" method="GET">
-        
-      <label for="Email">Enter your Email* :</label><br>
-      <input id="Email" name="Email" type="Email" required placeholder="name@gmail.com" pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$" title="Please enter a valid email like name@gmail.com"/><br>
+<h1>Log in</h1>
+<div class="login-container">
+<main>
+    <!-- Show error message inside form -->
+    <?php if (!empty($login_message)) echo $login_message; ?>
 
-      <label for="password">Enter your Password* :</label><br>
-      <input id="password" name="password" type="password" pattern=".{8,}" title="password must be at least 8 characters"required /><br>
-            
-      <button type="submit">Log in</button>
-      </form>
-       <br>
-       <p>Don't have an account? <a href="signup.html"> Sign up</a></p>
-    </main>
-     </div>
-    <footer>
-    <p>&copy; 2025 Code & Crumble</p>
-    </footer>
+    <form action="" method="POST"> 
+        <label for="Email">Enter your Email* :</label><br>
+        <input id="Email" name="Email" type="email" required placeholder="name@gmail.com" 
+               title="Please enter a valid email like name@gmail.com"/><br>
+
+        <label for="password">Enter your Password* :</label><br>
+        <input id="password" name="password" type="password" pattern=".{8,}" required 
+               title="Password must be at least 8 characters"/><br>
+
+        <button type="submit">Log in</button>
+    </form>
+    
+    <br>
+    <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+</main>
+</div>
+
+<footer>
+<p>&copy; 2025 Code & Crumble</p>
+</footer>
 </body>
 </html>

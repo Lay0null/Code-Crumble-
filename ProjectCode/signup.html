@@ -50,7 +50,36 @@ $conn->close();
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="signup-page">
- <header class = "main-header"> </header>
+
+<header class = "main-header">
+        <nav class="navBar">
+            <a href="index.php" class= "navLogo">
+                <h2 class = "logoText">Code & Crumble</h2>
+            </a>
+               <ul class ="nav-menu">
+                <li class="navItem">
+                    <a href="index.php" class ="navLink">Home</a>
+                </li> 
+                <li class="navItem">
+                    <a href="recipes.php" class ="navLink">Recipes</a>
+                </li> 
+                    
+                <li class="navItem">
+                    <a href="login.php" class ="navLink">Login</a>
+                </li> 
+
+                <li class="navItem">
+                    <a href="about.html" class ="navLink">About</a>
+                </li>  
+                 <li class="navItem">
+                    <a href="contact.php" class ="navLink">Contact</a>
+                </li>   
+                
+                
+            </ul>
+        </nav>
+    </header>
+
 <h1>Create a new account</h1>
 
 <div class="signup-container">
@@ -80,9 +109,9 @@ $conn->close();
 </main>
 </div>
 
+
 <footer class="main-footer">
-    <p>&copy; 2025 Code & Crumble</p>
-    </footer>
+<p>&copy; 2025 Code & Crumble</p>
+</footer>
 </body>
 </html>
-

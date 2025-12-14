@@ -1,3 +1,47 @@
+<?php 
+require_once "db_connect.php";  // Connect to the database
+
+$signup_message = "";  // Keep empty unless there's an error
+
+// Check if the form was submitted using POST
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["name"], $_POST["Email"], $_POST["password"])) { 
+
+    // 1) Get the form values
+    $name  = htmlspecialchars($_POST["name"]);
+    $email = htmlspecialchars($_POST["Email"]);
+    $pass  = htmlspecialchars($_POST["password"]);
+
+    // 2) Simple validation
+    if ($name === "" || $email === ""  || $pass === "") { 
+        $signup_message = "<p class='error-message'>Please fill in all fields</p>"; 
+    } else {
+
+        // 3) SQL query to check if email already exists
+        $sql = "SELECT id FROM users WHERE email = '$email'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            $signup_message = "<p class='error-message'>Email already exists</p>";
+        } else {
+
+            // 4) Hash password and insert new user
+            $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+            $sql_insert = "INSERT INTO users (username, email, password) VALUES ('$name', '$email', '$hashed_password')";
+
+            if ($conn->query($sql_insert) !== TRUE) {
+                $signup_message = "<p class='error-message'>Error saving user: " . $conn->error . "</p>";
+            } else {
+                // Redirect to login page on successful signup
+                header("Location: index.php");
+                exit;
+            }
+        }
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,32 +51,38 @@
 </head>
 <body class="signup-page">
 
-    <nav></nav>
-    <h1> Create a new account</h1>
+<nav></nav>
+<h1>Create a new account</h1>
 
-    <div class="signup-container">
-    <main>
-        <form action="index.html" method="POST">
-            
-        <label for="name"> Enter your user name:</label><br>
-        <input type="text" id="name" name="name" required placeholder="Enter your user name" pattern="^[a-zA-Z0-9]+$" 
-       title="Name can only contain letters and numbers, no spaces or special characters"><br>
+<div class="signup-container">
+<main>
+    <!-- Show error message inside form -->
+    <?php if (!empty($signup_message)) echo $signup_message; ?>
+
+    <form action="" method="POST"> 
+        <label for="name">Enter your user name:</label><br>
+        <input type="text" id="name" name="name" required placeholder="Enter your user name"
+               pattern="^[a-zA-Z0-9]+$" 
+               title="Name can only contain letters and numbers, no spaces or special characters"><br>
 
         <label for="Email">Enter your Email* :</label><br>
-        <input id="Email" name="Email" type="Email" required placeholder="name@gmail.com" pattern="^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$" title="Please enter a valid email like name@gmail.com"/><br>
+        <input id="Email" name="Email" type="email" required placeholder="name@gmail.com"
+               title="Please enter a valid email like name@gmail.com"/><br>
 
         <label for="password">Enter your Password* :</label><br>
-        <input id="password" name="password" type="password" pattern=".{8,}" title="password must be at least 8 characters"required /><br>
+        <input id="password" name="password" type="password" required pattern=".{8,}" 
+               title="Password must be at least 8 characters"/><br>
 
         <button type="submit">Sign up</button>
-        </form>
-        
-        <br>
-        <p>Do you already have an account? <a href="login.html"> Log in</a></p>
-    </main>
-     </div>
-    <footer>
-    <p>&copy; 2025 Code & Crumble</p>
-    </footer>
+    </form>
+    
+    <br>
+    <p>Do you already have an account? <a href="login.php">Log in</a></p>
+</main>
+</div>
+
+<footer>
+<p>&copy; 2025 Code & Crumble</p>
+</footer>
 </body>
 </html>

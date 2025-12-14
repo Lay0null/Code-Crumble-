@@ -1,586 +1,495 @@
-/* --- 1. GLOBAL RESET AND LAYOUT --- */
-/* --- Color pallete of website is still under some Changes */
+/*-------------global and typography styles---------*/
 body {
-    font-family: sans-serif; 
-    margin: 0; 
+    font-family: 'Inter', sans-serif; 
+    color: #333333; 
+    margin: 0;
     padding: 0;
-    background-color: #E7DEDA; 
-}
-.page-content {
-    max-width: 1200px; /* Limits the main content width */
-    margin: 0 auto;    /* Centers the main content */
-    padding: 20px;
-}
-
-/* --- 2. HEADER AND NAVIGATION STYLING --- */
-.main-header {
-    background-color: #3A2E39; /* violet background */
-    color: white;
-    padding: 15px 30px;
-    display: flex; /* Starts the horizontal layout */
-    justify-content: space-between;
-    align-items: center;
-}
-.nav-menu {
-    list-style: none; /* Removes bullets */
-    display: flex; /* Makes the menu horizontal */
-    gap: 20px;
-}
-.nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-/* --- RECIPE GRID LAYOUT --- */
-
-/* 1. Target the container for the recipes */
-.recipe-grid {
-    display: grid;
-    /* Create three columns of equal width (1fr = 1 fractional unit) */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px; /* Space between the cards */
-    margin-top: 30px;
-}
-
-/* 2. Basic styling for the individual cards */
-.recipe-card {
-    background-color: white;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for depth */
-}
-
-/* 3. Ensures images don't overflow the cards */
-.recipe-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 6px; /* Match the card border radius */
-    margin-bottom: 10px;
-}
-
-/* --- 3. BUTTON STYLING --- */
-.btn-primary {
-    display: inline-block; /* Makes the link act like a block/button */
-    background-color: #F05365; /* Bright primary color */
-    color: white;
-    padding: 10px 20px;
-    border-radius: 4px;
-    text-decoration: none;
-    font-weight: bold;
-    text-align: center;
-}
-
-/* Main form container for both Add & Edit pages */
-.add-page form,
-.edit-page form {
-    width: 70%;
-    max-width: 700px;
-    background-color: #FEF7F9;
-    background-image: url('cake.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    padding: 30px 50px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    margin-bottom: 40px;
-}
-
-/* Grid layout inside form */
-.add-page .form-container,
-.edit-page .form-container {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-/* Left column (text fields) */
-.add-page .column-left,
-.edit-page .column-left {
-    flex: 2;
-}
-
-/* Right column (photo upload) */
-.add-page .column-right,
-.edit-page .column-right {
-    flex: 1;
-    min-width: 250px;
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    
+    background-image: linear-gradient(
+        to bottom right,
+        #ffffff, 
+       /*a transition through soft blush tones*/ 
+        #e4c0cc 
+    );
+    /* Fallback color */
+    background-color: #FBF7F3; 
 }
 
-/* Photo upload card box */
-.add-page .section-photo,
-.edit-page .section-photo {
-    padding: 20px;
-    background-color: #FFFBF7;
-    border-radius: 12px;
-    border: 3px double #DDA5B3;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
-    min-height: 250px;
-    flex-grow: 1;
+/* Links */
+a {
+    color: #775b62; 
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: #775b62;
+    text-decoration: underline;
+}
+/*nav bar styles*/
+.main-header {
+    background-color: #DDA5B3;
+    padding: 20px 0; 
+    width: 100%;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.navBar {
+    width: 90%;
+    max-width: 1200px; 
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoText {
+    color: white;
+    
+    font-family: 'Playfair Display', serif; 
+    letter-spacing: 3px; 
+    font-size: 1.6em; 
+    font-weight: 900;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 35px; 
+}
+
+.navLink {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1em;
+    padding-bottom: 5px;
+    border-bottom: 3px solid transparent;
+}
+
+.navLink:hover {
+    border-bottom: 3px solid #ffffff;
+}
+
+
+/* ---------------HERO SECTION --------------------*/
+
+#hero {
+    min-height: 70vh; 
+    padding: 60px 5%; 
+    
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+        /* 2. Loads your image file as the background */
+        url('images/c1.jpg'); 
+        
+    background-size: cover; /* Ensures the image always covers the whole container */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat;
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: left; /*text on the left side*/
+    
+    border-bottom: none; 
 }
 
-/* Hide photo section header */
-.add-page .section-photo h3,
-.edit-page .section-photo h3 {
-    display: none;
+.hero-content {
+    max-width: 800px;
+    width: 100%;
+    margin-top: 0;
 }
 
-/* Hide actual input file */
-.add-page input[type="file"],
-.edit-page input[type="file"] {
-    display: none;
-}
-
-/* Custom upload button block */
-.add-page .custom-file-upload,
-.edit-page .custom-file-upload {
-    display: block;
-    cursor: pointer;
-    padding: 20px;
-    border-radius: 12px;
-    transition: background-color 0.3s ease;
-    text-align: center;
-    background-color: #FEF7F9;
-    border: 1px solid #DDA5B3;
+#hero h2 {
+    font-size: 4.5em; 
+    color: #ffffff; 
+    font-family: 'Playfair Display', serif; 
     margin-bottom: 15px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7); 
 }
 
-/* Upload hover effect */
-.add-page .custom-file-upload:hover,
-.edit-page .custom-file-upload:hover {
-    background-color: rgba(221,165,179,0.4);
+#hero p {
+    font-size: 1.4em;
+    color: #FBF7F3; 
+    margin-bottom: 50px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7); 
 }
 
-/* Upload icon */
-.add-page .custom-file-upload img,
-.edit-page .custom-file-upload img {
-    width: 80px;
-    height: auto;
-    display: block;
-    margin: 0 auto 5px auto;
-    opacity: 0.9;
-    transition: opacity 0.3s ease;
-}
 
-/* input & textarea styling */
-.add-page input[type="text"],
-.add-page textarea,
-.edit-page input[type="text"],
-.edit-page textarea {
-    width: 98%;
-    padding: 12px;
-    border: 1px solid #DDA5B3;
-    border-radius: 8px;
-    background-color: #FFFBF7;
-    color: #4A433E;
-    margin-bottom: 15px;
-}
-/* Addpage — main submit button */
-.add-page button {
-    width: 50%;
-    margin: 30px auto;
-    padding: 15px;
-    background-color: #DDA5B3;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.3em;
-    box-shadow: 0 5px 15px rgba(221,165,179,0.8);
-    transition: 0.3s;
-    display: block;
-}
-
-/* Uploaded status */
-.add-page #status.uploaded-status,
-.edit-page #status.uploaded-status {
-    background-color: #F9EFE7;
-    border: 2px solid #A9907E;
-    color: #4A433E;
-    font-weight: 500;
-    box-shadow: 0 0 5px rgba(169, 144, 126, 0.7);
-}
-
-/* Edit page — update & delete buttons */
-.edit-page .save-changes-button,
-.edit-page .delete-button {
-    width: 45%;
-    margin: 20px auto;
-    padding: 12px;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 1.2em;
-    box-shadow: 0 5px 15px rgba(221,165,179,0.8);
-    transition: 0.3s;
+.btn-primary {
     display: inline-block;
-    text-align: center;
     background-color: #DDA5B3;
     color: white;
-    margin-left: 10px;
+    padding: 15px 35px; 
+    border-radius: 5px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+    transition: 0.3s ease;
 }
 
-/* All hover effects */
-.add-page button:hover,
-.edit-page button:hover {
-    background-color: #B28391;
-    transform: translateY(-3px);
+/*--------mission section styles--------------*/
+
+#mission {
+    padding: 80px 5%; 
+    text-align: left;
+    max-width: 1000px; 
+    margin: 0 auto;
 }
 
-/* mini Alert & confirm messages style */ 
-.add-page #miniAlert,
-.edit-page #miniAlert,
-.edit-page #miniConfirm {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  background: rgba(0,0,0,0.25);
-} 
-/* mini Alert & confirm messages style */ 
-
-#miniAlert div,
-#miniConfirm div {
-  background: #FEF7F9;
-  padding: 40px 40px;
-  border-radius: 15px;
-  border: 2px solid #DDA5B3;
-  text-align: center;
-}
-/* mini Alert & confirm messages buttons style */ 
-.add-page #miniAlert button,
-.edit-page #miniAlert button,
-.edit-page #miniConfirm button {
-  background: #DDA5B3;
-  color: white;
-  border: none;
-  display: inline-block;
-  padding: 10px 40px;
-  margin: 5px;
-  border-radius: 6px;
-  box-shadow: 0 5px 15px rgba(221,165,179,0.8);
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-body {
-    margin: 0;
-    padding:0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    background-color: #FBF7F3; 
-}
-
-nav {
-    width: 100%;
-    background-color: #DDA5B3;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-family: 'Georgia', serif;
-    font-size: 0.9em;
-}
-
-footer {
-    width: 100%;
-    background-color: #DDA5B3;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: auto;
-    font-family: 'Georgia', serif;
-    font-size: 0.9em;
-}
-
-/* ===================== LOGIN & SIGNUP PAGES ===================== */
-/* background image*/
-.login-page,
-.signup-page {
-    position: relative;
-    background-image: 
-        url("cubcake.png"), url("macaron.png"), url("biscuit.png"),
-        url("dount.png"), url("cinnabon.png"), url("cheasecake.png"),
-        url("cake.png"), url("pie.png"), url("biscuit2.png"),
-        url("icecream.png"), url("cakerole.png"), url("boding.png");
-
-    background-repeat: no-repeat;
-    background-size: 125px;
-    background-attachment: fixed;
-    background-color: rgba(247, 251, 243, 0.45);
-
-    background-position:
-        21% 22%,   /* cupcake */
-        78% 58%,   /* macaron */
-        37% 38%,   /* biscuit */
-        63% 38%,   /* donut */
-        91% 38%,   /* cinnabon */
-        7%  38%,   /*cheasecake*/
-        63% 76%,   /*cake*/
-        37% 75%,   /*pie*/
-        91% 76%,   /*biscuit2*/
-        7%  73%,   /*icecream*/
-        78% 22%,   /*cakerole*/
-        21% 58%;   /*boding*/
-}
-
-/* form style*/
-.login-container,
-.signup-container {
-    width: 360px;
-    max-width: 90%;
-    background-color: #FFFFFF;
-    padding: 30px 35px;
-    border-radius: 22px;
-    border: 2px dashed #A37665;
-    margin: 60px auto;
-    box-sizing: border-box;
-}
-/* header style*/
-.login-page h1,
-.signup-page h1 {
-    text-align: center;
-    font-size: 28px;
-    color: #5b3b32; 
-    margin-top: 100px;   
+#mission h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    color: #4A433E; 
     margin-bottom: 20px;
 }
-\* label style*/
-.login-container label,
-.signup-container label {
-    display: block;
-    margin-bottom: 6px;
-    color: #5b5b5b;
-    font-size: 15px;
-}
-/* input fields style*/
-.login-container input,
-.signup-container input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #A37665;
-    border-radius: 10px;
-    margin-bottom: 18px;
-    background-color: #FFF8F2;
-    font-size: 15px;
-    box-sizing: border-box;
-}
-/* header focus style*/
-.login-container input:focus,
-.signup-container input:focus {
-    outline: none;
-    border: 2px solid  #AE887B;
-}
-/* button style*/
-.login-container button,
-.signup-container button {
-    width: 100%;
-    padding: 14px;
-    background-color:#DDA5B3; 
-    color: white;
-    border: none;
-    border-radius: 14px;
-    font-size: 17px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-/* hover effect for button*/
-.login-container button:hover,
-.signup-container button:hover {
-    background-color: #B28391;
-}
-/* links (login/signup switch) */
-.login-container a,
-.signup-container a {
-    text-decoration: none;
-    color: #DDA5B3;
-    font-size: 14px;
-}
-/* ===================== ABOUT PAGES ===================== */
-/* background image*/
-.about-page {
-    background-image: url( background.jpg);
-    background-size:1900px ;
-    background-repeat: repeat;
-    background-position: top left;
-    background-attachment: fixed;
-    image-rendering: pixelated;
-}
-/* main style*/
-.about-page .about-box {
-background-image: url(oval.png);
-    width: 1050px;         
-    height: 700px;           
-    padding: 160px 150px 0 90px;   
-    background-size: 126% 650px;   
-    background-position:center;
-}
-/* paragraph style*/
-.about-box p{
-display: block;
-margin-top: 20px;
-line-height: 1.8;
-}
 
-/* ===================== CONTACT PAGES ===================== */
-/* background image*/
-.contact-page {
-   background-image: url("dot.png");
-     background-repeat: repeat ;
-    background-size: 20px 20px;
-    background-position: top left;
-    background-attachment: fixed;
-}
-/* main style*/
-.contact-page .contact-box{
-background-image: url(biscit.png);
-    width: 800px;         
-    height: 600px;          
-    padding: 180px 70px 0 60px;    
-    background-size: 95% 600px;
-    background-position: bottom center;   
-}
-/* paragraph style*/
-.contact-text p {
-    display: flex;             
-    align-items: center;        
-    margin: 18px auto; 
-    padding: 0 0 0 65px;    
-}
-
-/* paragraph style*/
-.contact-page .contact-box .p-email::before{
-    content: "";
-    display: inline-block;
-    background-image: url("email.png"); 
-    width: 45px;        
-    height: 45px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    margin-right: 12px;   
-}
-
-
-/* ===================== ABOUT & CONTACT PAGES ===================== */
-/* main style for both pages */
-.about-page .about-box,
-.contact-page .contact-box{
-position: relative;
- margin: 75px auto;     
- box-sizing: border-box;  
- text-align: center;
- background-position: center;
-background-repeat: no-repeat;  
-}
-
-/* header style*/
-.about-box h1,
-.about-box h3,
-.contact-box h1{
-    font-size: 25px;
-    color: #5b3b32;
-    line-height: 1;
-    margin: 20px 0;
-    font-family: 'Pacifico';
-}
-/* paragraph style*/
-.about-box p,
-.contact-text p{
-font-size: 21px;
-color: #5b3b32; 
-font-family: 'Georgia', serif;     
-}
-/* links(home/contact/about/login swich) style*/
-.pages-links a {
-    color: #FFFFFF;
-    text-decoration: none;
-    margin: 0 18px;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-
-/* ===================== LOGIN & SINGUP & ABOUT & CONTACT PAGES ===================== */
-/* transparent layer over the background */
-.login-page::before,
-.signup-page::before,
-.about-page::before,
-.contact-page::before {
-    content: "";
-    position:absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #f6eee7; 
-    opacity: 0.4; 
-    pointer-events: none; 
-    z-index: -1; 
-}
-
-/*  VIEW RECIPE PAGE  */
-
-/* Page Title */
-.view-page h1 {
-    margin: 40px auto 20px auto;
-    width: 70%;
+.mission-text {
+    font-size: 1.25em;
+    line-height: 1.9;
+    color: #805e68; 
     max-width: 700px;
-    font-size: 28px;
-    color: #5b3b32;
+    margin: 0 auto;
 }
 
-/* Main Recipe Box (looks similar to Add Recipe form) */
-.view-page .view-box {
-    width: 70%;
-    max-width: 700px;
-    background-color: #FEF7F9;
-    padding: 30px 50px;
-    border-radius: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-    margin: 0 auto 40px auto;
-    border: 2px solid #F2D3DD;
+
+/* -------------RECIPE OF THE DAY SECTION -------------*/
+.recipe-of-the-day {
+    position: relative; 
+    padding: 50px 20px; 
+    /* MUST HAVE THIS: Creates vertical space for the graphic to sit */
+    padding-bottom: 200px; 
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-/* Simple text lines (Name, Type, Tags) */
-.view-page .view-box p {
-    margin: 8px 0;
-    font-size: 16px;
+.recipe-of-the-day h3 {
+    font-size: 2.5em; 
     color: #4A433E;
+    font-family: 'Playfair Display', serif; 
+    margin-bottom: 50px; 
 }
 
-/* Section titles (Ingredients, Instructions) */
-.view-page .view-box h3 {
-    margin-top: 20px;
-    margin-bottom: 8px;
-    color: #5b3b32;
+
+.daily-recipe-placeholder {
+    background: #ffffff; 
+    border: none; 
+    padding: 40px; 
+    margin: 30px auto 60px; /* More space below the box */
+    border-radius: 5px; 
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); 
 }
 
-/* Edit Recipe Button Style */
-.view-page .back-btn {
-    display: inline-block;
-    margin-top: 25px;
-    padding: 12px 30px;
-    background-color: #DDA5B3;
-    color: #fff;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 5px 15px rgba(221,165,179,0.8);
-    transition: 0.3s;
+.daily-recipe-placeholder h3 {
+    color: #DDA5B3; /* Use the brand color */
+    margin-top: 0;
 }
 
-.view-page .back-btn:hover {
-    background-color: #B28391;
-    transform: translateY(-3px);
+/* Hide the horizontal rule */
+hr {
+    display: none; 
+}
+
+/*-------------- HONORABLE MENTIONS SECTION------------ */
+
+.recipe-grid {
+    display: grid;
+    /* Ensure cards are responsive but never too small */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 300px)); 
+    gap: 30px; /* More space between cards */
+    padding: 40px 5%; 
+    max-width: 1500px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/*--------honmorable mentions intro-------*/
+.mentions-intro {
+   width: 90%;
+    max-width: 650px;
+    margin: -30px auto 40px; 
+    padding: 25px;
+    
+    background-color: #FEF8FA; 
+    border-top: 5px solid #DDA5B3; 
+    
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08); /* Stronger shadow for depth */
+    text-align: center;
+}
+.mentions-intro p {
+    font-size: 1.1em;
+    color: #4A433E;
+    margin: 0; /* Remove default paragraph margins */
+    line-height: 1.6;
+}
+
+.recipe-card {
+    background: #ffffff; 
+    padding: 0; /* Remove internal padding; let the image manage space */
+    border-radius: 5px; 
+    border: none; /* Remove borders */
+    text-align: left; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+    transition: 0.3s ease;
+    overflow: hidden; /* hover zoom effect */
+}
+
+.card-content {
+    padding: 10px 15px 15px; 
+}
+
+
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    /* Clean outline border on hover */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
+    outline: 2px solid #795b63; 
+}
+
+.recipe-card img {
+    width: 100%;
+    /* Enforce a modern aspect ratio for uniform gallery look */
+    aspect-ratio: 4 / 3; 
+    object-fit: cover;
+    border-radius: 0; 
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.recipe-card:hover img {
+    /* Subtle zoom for a professional hover state */
+    transform: scale(1.03); 
+}
+
+.recipe-card h4 {
+    /* Use the elegant serif font for titles */
+    font-family: 'Playfair Display', serif; 
+    font-size: 1.4em; /* Slightly larger */
+    margin: 5px 0; 
+    color: #bd5a5a;
+}
+
+.recipe-card p {
+    font-size: 0.95em; 
+    color: #6a6a6a; 
+    margin: 0 0 10px; 
+    max-height: 2.5em; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.recipe-card .card-content a {
+    display: block; 
+    text-align: center;
+    margin: 10px 0 0; /* Top margin to separate it from the description */
+}
+
+/* 'See all recipes' link */
+.view-all-link {
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 50px;
+}
+
+.view-all-link a {
+    font-weight: 700;
+    color: #775b62;
+    font-size: 1.1em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.view-all-link a:hover {
+    color: #35302d;
+}
+
+
+/*------- BACKDROP GRAPHICS----------- */
+
+.cake-graphic-backdrop-left {
+    position: absolute;
+    
+    /* moves the image off to the left */
+    left: -400px; 
+    
+    /* slightly higher position */
+    top: -100px; 
+    
+    width: 600px; 
+    height: 600px;
+    
+    /* Placeholder for a cake slice transparent PNG */
+    background-image: url('images/pie.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    /* CRITICAL: Pushes graphic behind all content */
+    z-index: -1; 
+    
+    /* Subtlety */
+    opacity: 0.35; 
+    pointer-events: none; 
+}
+
+.cookie-graphic-backdrop {
+    position: absolute;
+    
+    /* puts the image to the right */
+    right: -250px;
+    
+    bottom: 90px; 
+
+    /*size of the image */
+    width: 500px; 
+    height: 500px;
+    
+    background-image: url('images/backgroundCookie.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+    /*so it stays behind other content*/
+    z-index: -1;  
+    /* subtle appearance */
+    opacity: 0.35; 
+    pointer-events: none; 
+}
+
+
+/* ------------ view recpie page ---------------- */
+
+
+.page-content-view-recipe {
+    max-width: 1000px; /* Constrain the overall width */
+    margin: 0 auto; /* Center the content */
+    padding: 20px;
+    text-align: center; /* Center the Recipe Title and HR */
+}
+
+.page-content-view-recipe h2 {
+    font-size: 3em;
+    font-family: 'Playfair Display', serif;
+    color: #4A433E;
+    margin-bottom: 30px;
+    text-align: center; /* Ensure the main title is centered */
+}
+
+.recipe-image-container {
+    /* CRITICAL: Constrain the container's size */
+    max-width: 800px; 
+    /* Center the container on the page */
+    margin: 30px auto;
+    padding: 0 5%;
+    /* Ensure the container behaves properly */
+    text-align: center;
+}
+
+.recipe-image-container img {
+    max-width: 700px; 
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px auto 30px; 
+    display: block; /* Centers the image */
+}
+
+
+/* Metadata (Type, Tags) Wrapper */
+.recipe-meta {
+    max-width: 700px;
+    margin: 0 auto 30px; /* Center and add space below */
+    padding: 10px 0;
+    border-top: 1px solid #9b8f8f; /* Light dividers for structure */
+    border-bottom: 1px solid #9b8f8f;
+    display: flex; 
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+.recipe-meta p {
+    margin: 5px 0; /* Tighten up spacing */
+    color: #424242;
+}
+
+.ingredients-list, 
+.instructions-block {
+    max-width: 700px;
+    margin: 0 auto; /* Center the blocks */
+    padding: 15px 20px; /* Internal padding for readability */
+    background-color: #ffffff; 
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    line-height: 1.8;
+    font-size: 1.05em;
+    color: #35302d;
+    text-align: left; 
+    white-space: pre-wrap; /* Preserve formatting */
+}
+
+/* Back Button */
+.page-content-view-recipe .btn-primary {
+    margin: 40px auto 60px; /* Lots of space above and below the button */
+    display: block; /* Make the button take up its own line */
+    width: fit-content; /* Ensure it only takes up the space it needs */
+}
+
+
+/* ------------ recipes page ---------------- */
+.page-content-recipes h1 {
+    font-size: 3.2em;
+    font-family: 'Playfair Display', serif;
+    color: #4A433E;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    text-align: center; 
+}
+
+.page-content-recipes .btn-primary {
+    display: block; 
+    width: fit-content;
+    margin: 20px auto 40px; 
+}
+
+.filter-controls {
+    max-width: 1000px;
+    width: 90%;
+    margin: 0 auto 50px; /* Center the controls and add space below */
+    padding: 20px;
+    background-color: #ffffff; 
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    
+    
+    display: flex;
+    justify-content: space-between; 
+    gap: 30px; /* Space between the two forms */
+    flex-wrap: wrap; 
+}
+
+
+/* ----------footer ----------- */
+
+.main-footer {
+    background-color: #DDA5B3; 
+    color: #FBF7F3; 
+    text-align: center;
+    padding: 30px 0; 
+    margin-top: auto; 
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: #FBF7F3;
+    margin: 0 10px;
 }

@@ -1,4 +1,4 @@
-CREATE DATABASE code_crumble;
+CREATE DATABASE IF NOT EXISTS code_crumble;
 USE code_crumble;
 
 -- 1) Users table 
@@ -24,5 +24,18 @@ CREATE TABLE recipes (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
+    FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+-- 3) contact table 
+CREATE TABLE contact_messages ( 
+    id INT AUTO_INCREMENT PRIMARY KEY, 
+    user_id INT NULL,       
+    name VARCHAR(100) NOT NULL, 
+    email VARCHAR(150) NOT NULL, 
+    subject VARCHAR(150) NOT NULL, 
+    message TEXT NOT NULL, 
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
     FOREIGN KEY (user_id) REFERENCES users(id)
 );

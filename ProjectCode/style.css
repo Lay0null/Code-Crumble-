@@ -646,7 +646,6 @@ hr {
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed;
-    image-rendering: pixelated;
 }
 /* main style*/
 .about-box {
@@ -965,6 +964,7 @@ font-family: 'Playfair Display', serif;
   transition: 0.3s;
   cursor: pointer;
 }
+
 
 
 

@@ -500,15 +500,25 @@ hr {
 .login-page,
 .signup-page {
     position: relative;
-    background-image: 
+    background-image:
         url("images/cubcake.png"), url("images/macaron.png"), url("images/biscuit.png"),
         url("images/dount.png"), url("images/cinnabon.png"), url("images/cheasecake.png"),
         url("images/cake.png"), url("images/pie.png"), url("images/biscuit2.png"),
-        url("images/icecream.png"), url("images/cakerole.png"), url("images/boding.png");
+        url("images/icecream.png"), url("images/cakerole.png"), url("images/boding.png"),
+        linear-gradient(
+        to bottom right,
+        #ffffff, 
+       /*a transition through soft blush tones*/ 
+        #e4c0cc
+    );
 
     background-repeat: no-repeat;
-    background-size: 125px;
-    background-attachment: fixed;
+     background-size:
+        125px, 125px, 125px,
+        125px, 125px, 125px,
+        125px, 125px, 125px,
+        125px, 125px, 125px,
+        cover;
 
     background-position:
         21% 22%,   /* cupcake */
@@ -522,7 +532,9 @@ hr {
         91% 76%,   /*biscuit2*/
         7%  73%,   /*icecream*/
         78% 22%,   /*cakerole*/
-        21% 58%;   /*boding*/
+        21% 58%,   /*boding*/
+        0 0;       /*gradient*/
+  
 }
 /* form style*/
 .login-container,
@@ -630,14 +642,14 @@ hr {
 /* background image*/
 .about-page {
     background-image: url( images/background.jpg);
-    background-size:1900px ;
+    background-size:2800px ;
     background-repeat: repeat;
     background-position: top left;
     background-attachment: fixed;
     image-rendering: pixelated;
 }
 /* main style*/
-.about-page .about-box {
+.about-box {
 background-image: url(images/oval.png);
     width: 1050px;         
     height: 700px;           
@@ -652,7 +664,7 @@ margin-top: 20px;
 line-height: 1.8;
 }
 /* main style */
-.about-page .about-box{
+.about-box{
 position: relative;
  margin: 75px auto;     
  box-sizing: border-box;  
@@ -681,10 +693,24 @@ color: #5b3b32;
 /* background image*/
 .contact-page{
 
-    background-image: url("images/dot.png");
-    background-repeat: repeat;
-    background-size: 20px 20px;
-    background-position: top left;
+    background-image: url("images/ddot.png"),
+    linear-gradient(
+        to bottom right,
+        #ffffff, 
+       /*a transition through soft blush tones*/ 
+        #e4c0cc
+    );
+    background-repeat: 
+    repeat,
+    no-repeat;
+
+    background-size: 
+    20px 20px,
+    cover;
+
+    background-position: 
+    top left,
+    center;
 }
 /* form style*/
 .contact-container {
@@ -697,19 +723,19 @@ color: #5b3b32;
 }
 
 /* paragraph style, left aligned */
-.contact-container .contact-text {
+.contact-text {
     text-align: left;
     margin-bottom: 20px;
 }
 /* paragraph style*/
-.contact-container .contact-text p {
+.contact-text p {
     font-size: 15px;
     color: #5b5b5b;
     margin: 6px 0;
 }
 
 /* email icon before text */
-.contact-container .contact-text .p-email::before {
+.contact-text .p-email::before {
     content: "";
     display: inline-block;
     background-image: url("images/email.png"); 
@@ -720,7 +746,6 @@ color: #5b3b32;
     margin-right: 8px;   
     vertical-align: middle;
 }
-
 
 .add-page,
 .edit-page{
@@ -940,6 +965,7 @@ font-family: 'Playfair Display', serif;
   transition: 0.3s;
   cursor: pointer;
 }
+
 
 
 

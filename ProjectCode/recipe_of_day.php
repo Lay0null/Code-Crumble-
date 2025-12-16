@@ -21,6 +21,21 @@ mysqli_close($conn);
 </head>
 
 <body class="view-page">
+<header class="main-header">
+  <nav class="navBar">
+    <a href="index.php" class="navLogo">
+      <h2 class="logoText">Code &amp; Crumble</h2>
+    </a>
+
+    <ul class="nav-menu">
+      <li class="navItem"><a href="index.php" class="navLink">Home</a></li>
+      <li class="navItem"><a href="recipes.php" class="navLink">Recipes</a></li>
+      <li class="navItem"><a href="login.php" class="navLink">Login</a></li>
+      <li class="navItem"><a href="about.php" class="navLink">About</a></li>
+      <li class="navItem"><a href="contact.php" class="navLink">Contact</a></li>
+    </ul>
+  </nav>
+</header>
 
 <h1>Recipe of the Day</h1>
 

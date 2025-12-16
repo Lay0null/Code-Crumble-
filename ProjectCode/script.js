@@ -1,5 +1,6 @@
 
-// Update image status when user selects a file
+// Update image status when user selects a file add/edit
+
 function updateStatus() {
     const fileInput = document.getElementById('recipe_file');
     const status = document.getElementById('status');

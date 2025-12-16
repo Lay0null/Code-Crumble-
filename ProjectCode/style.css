@@ -965,6 +965,51 @@ font-family: 'Playfair Display', serif;
   cursor: pointer;
 }
 
+/* Recipe of the Day Page */
+.view-page {
+  background-color: #f7f7fb;
+  min-height: 100vh;
+}
+
+.view-page h1 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 2rem;
+}
+
+.view-box {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+}
+
+.view-box p {
+  line-height: 1.7;
+  margin: 10px 0;
+}
+
+.view-box h3 {
+  margin-top: 25px;
+}
+
+.back-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #6c63ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #554eea;
+}
+
 
 
 

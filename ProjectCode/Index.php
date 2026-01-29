@@ -2,17 +2,14 @@
 include "db.php"; 
 
 // 1. qurey for "Today's Top Pick"
-// Fetches the single recipe marked as 'Top Pick'
 $top_pick_sql = "SELECT id, dessert_name, description FROM recipes WHERE featured_status = 'Top Pick' LIMIT 1";
 $top_pick_result = mysqli_query($conn, $top_pick_sql);
 $top_pick = mysqli_fetch_assoc($top_pick_result);
 
 // 2. query for "Honorable Mentions"
-// Fetches up to 3 recipes marked as 'Honorable Mention'
 $honors_sql = "SELECT id, dessert_name, description, image_url, instructions FROM recipes WHERE featured_status = 'Honorable Mention' ORDER BY created_at DESC LIMIT 3";
 $honors_result = mysqli_query($conn, $honors_sql);
 
-// Function to safely escape output
 function e($text) {
     return htmlspecialchars($text ?? '');
 }
@@ -25,7 +22,6 @@ function e($text) {
     <title>Code & Crumble | Sweet Recipes </title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- (Cross-Origin Resource Sharing) domain for the font -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
     
